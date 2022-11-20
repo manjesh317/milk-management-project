@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")	//to change the name of table // by default it takes class name
-public class User {
+@Table(name="milkman")	//to change the name of table // by default it takes class name
+public class MilkMan {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -17,7 +17,14 @@ public class User {
 	private String email;
 	private String mobile_number;
 	private String password;
+	private Float price;
 	
+	public Float getPrice() {
+		return price;
+	}
+	public void setPrice(Float price) {
+		this.price = price;
+	}
 	public String getMobile_number() {
 		return mobile_number;
 	}
@@ -55,11 +62,12 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", address=" + address + ", email=" + email + ", number=" + mobile_number
-				+ "]";
+		return "MilkMan [id=" + id + ", name=" + name + ", address=" + address + ", email=" + email + ", mobile_number="
+				+ mobile_number + ", price=" + price + "]";
 	}
+	
+	
 	
 }

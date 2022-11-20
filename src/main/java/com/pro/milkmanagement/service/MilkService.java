@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pro.milkmanagement.entity.User;
+import com.pro.milkmanagement.entity.Milk;
 import com.pro.milkmanagement.repository.MilkRepository;
 
 @Service
@@ -14,29 +14,30 @@ public class MilkService {
 	@Autowired
 	public MilkRepository milkRepository;
 	
-	public List<User> getUsers() {
-		List<User> users = milkRepository.findAll();
-		for(User user:users) {
-			System.out.println(user);
+	public List<Milk> getMilks() {
+		List<Milk> milks = milkRepository.findAll();
+		for(Milk milk:milks) {
+			System.out.println(milk);
 		}
-		return users;
+		return milks;
 	}
 
-	public void createUser(User user) {
-		milkRepository.save(user);
+	public void createMilk(Milk milk) {
+		milkRepository.save(milk);
 		
 	}
 
-	public Optional<User> getUser(Long id) {
+	public Optional<Milk> getMilk(Long id) {
 		return milkRepository.findById(id);
 	}
 	
-	public User updateUser(User user) {
-		return milkRepository.save(user);
+	public Milk updateMilk(Milk milk) {
+		return milkRepository.save(milk);
 	}
 
-	public void removeUser(Long id) {
+	public void removeMilk(Long id) {
 		milkRepository.deleteById(id);		
 	}
+
 
 }
